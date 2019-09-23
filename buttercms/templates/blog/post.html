@@ -1,0 +1,143 @@
+{% extends "blog.html" %}
+
+{% block content %}
+<a href="{{ url_for('blog.home') }}">Blog Home</a>
+ <section class="blog_area p_120 single-post-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="blog_detaills">{{ post.title }}</div>
+                            <h3>By <a href="{{ url_for('blog.show_author', author_slug=post.author.slug) }}">{{ post.author.first_name }} {{ post.author.last_name }}</a></h3>
+<h5>Posted in
+{% for category in post.categories %}
+<a href="{{ url_for('blog.show_category', category_slug=category.slug) }}"><div class="floa">{{category.name}}</div></a>
+{% endfor %}
+</h5>
+    <div class="container"><p>{{ post.body|safe }}</p></div>
+
+                    </div>
+            </div>
+
+
+        </section>
+   <style type="text/css">
+    .floa,
+			a{
+				display: inline-block;
+				border: 1px solid #eeeeee;
+				text-align: center;
+				padding: 0px 20px;
+				font-size: 12px;
+				color: #000000;
+				font-weight: 500;
+				line-height: 28px;
+				background: #f9f9ff;
+				border-radius: 15px;}
+    {
+				}
+
+    </style>
+    <style type="text/css">
+    .blog_detaills,
+
+    h4 {
+        font-size: 36px;
+        font-weight: bold;
+        color: #000000;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+    #disqus_thread {
+position: relative;
+max-width: 750px;
+}
+
+#disqus_thread:after {
+content: "";
+display: block;
+height: 55px;
+width: 100%;
+position: absolute;
+bottom: 0px;
+background: white;
+}
+
+@media (max-width: 991px) {
+#disqus_thread {
+width: 715px;
+}
+}
+
+@media (max-width: 761px) {
+#disqus_thread {
+width: 93%;
+height: 335px !important;
+}
+}
+
+    </style>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://buttercmss.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+   <div class="comments">
+                    <div id="disqus_thread" class="center-block">
+                        <iframe width="100%" frameborder="0" id="dsq-2" data-disqus-uid="2" allowtransparency="true"
+                                scrolling="no"
+                                tabindex="0" title="Disqus"
+                                style="width: 50% ! important; border: medium none ! important; overflow: hidden ! important; height: 321px ! important;"
+                                src="https://disqus.com/embed/comments/?base=default&version=c27504c6b35de1ede08a7625b5ef4f3c&f=von-bootstrap&t_u=https%3A%2F%2F02dc74ce3e31e56a52ebcc845dca58e87283aabe.googledrive.com%2Fhost%2F0Bxbofwq0kd4ReUt2YWVOYmt3WVU%2Fsingle.html&t_d=Von%20-%20Minimalist%20Blog%20Theme&t_t=Von%20-%20Minimalist%20Blog%20Theme&s_o=default#2"
+                                horizontalscrolling="no" verticalscrolling="no"></iframe>
+                    </div>
+                    <script type="text/javascript">
+                        var disqus_shortname = 'buttercms'; // required: replace example with your forum shortname
+                        function disqus_config() {
+                            this.callbacks.afterRender.push(function () {
+                                alert('awais')
+                            });
+                        }
+
+                        var disqus_identifier = "image_".concat(12);
+                        var disqus_title = "image_title".concat(12);
+
+                        /*** Don't edit below this line ***/
+                        (function () {
+                            var dsq = document.createElement('script');
+                            dsq.type = 'text/javascript';
+                            dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+                    </script>
+
+                </div>
+ <div class="col-lg-4">
+          <div class="content-section">
+            <h3>Our Sidebar</h3>
+              <p class='text-muted'>You can put any information here you'd like.></p>
+              <ul class="list-group">
+                <li class="list-group-item list-group-item-light">Latest Posts</li>
+                <li class="list-group-item list-group-item-light">Announcements</li>
+                <li class="list-group-item list-group-item-light">Calendars</li>
+                <li class="list-group-item list-group-item-light">etc</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

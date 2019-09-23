@@ -1,0 +1,13 @@
+.list-inline, .list-unstyled {
+}
+
+.text-white {
+  color: #f1e7eb!important;
+}
+
+.bg-primary {
+  background-color: #772d6b!important;
+  background: rgb(221,38,177);
+  background: linear-gradient(90deg, rgba(221,38,177,1) 0%, rgba(194,20,102,1) 35%, rgba(73,170,181,1) 100%);
+}
+
